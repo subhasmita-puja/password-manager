@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+
+
+:root {
+  --color-primary: rgb(16 185 129);
+  --color-primary-light: rgb(52 211 153);
+  --color-secondary: rgb(20 184 166);
+  --color-accent: rgb(245 158 11);
+  --background-light: #f9fafb;
+  --background-dark: #111827;
+  --text-light: #111827;
+  --text-dark: #f9fafb;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-light);
+  color: var(--text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+/* Background patterns */
+.bg-pattern {
+  background-color: var(--background-light);
+  background-image: radial-gradient(circle at 25px 25px, rgba(0, 0, 0, 0.05) 2%, transparent 0%),
+    radial-gradient(circle at 75px 75px, rgba(0, 0, 0, 0.025) 2%, transparent 0%);
+  background-size: 100px 100px;
+  position: relative;
+}
+
+.dark .bg-pattern {
+  background-color: var(--background-dark);
+  background-image: radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.03) 2%, transparent 0%),
+    radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.02) 2%, transparent 0%);
+}
+
+/* Glassmorphism effect */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.dark .glassmorphism {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 200ms;
+}
+
+.btn:focus {
+  outline: none;
+  ring: 2px;
+  ring-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-light);
+}
+
+/* Input styles */
+.input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  transition: all 200ms;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.dark .input {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: white;
+}
+
+.dark .input:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 300ms;
+}
+
+.dark .card {
+  background-color: #1f2937;
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+
+
+
+/* Dark mode specific text styles */
+.dark .text-gray-900 {
+  color: #1e9da1 !important;
+}
+
+.dark .text-gray-800 {
+  color: #f3f4f6 !important;
+}
+
+.dark .text-gray-700 {
+  color: #5c6f93 !important;
+}
+
+.dark .text-gray-600 {
+  color: #2b323d !important;
+}
+
+.dark .text-gray-500 {
+  color: #1e9da1 !important;
+}
+
+/* Ensure form labels are visible in dark mode */
+.dark label.text-gray-700 {
+  color: #56575a !important;
+}
+
+/* Ensure placeholder text is visible in dark mode */
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #bdbec0 !important;
+}
+
+/* Improve contrast for table headers in dark mode */
+.dark th {
+  color: #e5e7eb !important;
+}
+
+/* Improve contrast for links in dark mode */
+.dark a:not([class]) {
+  color: #10b981;
+}
+
+.dark a:not([class]):hover {
+  color: #34d399;
+}
+
+/* Improve input field contrast in dark mode */
+.dark .input {
+  background-color: #374151;
+  border-color: #c0c4ca;
+  color: #f9fafb;
+}
+
+.dark .input:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
